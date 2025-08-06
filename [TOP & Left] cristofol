@@ -1,0 +1,123 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+// ### TOP and LEFT PANEL ## //
+
+[{
+"include": [
+  "$HOME/.config/waybar/Modules",
+  "$HOME/.config/waybar/ModulesWorkspaces",
+  "$HOME/.config/waybar/ModulesCustom",
+  "$HOME/.config/waybar/ModulesGroups",
+  "$HOME/.config/waybar/UserModules",
+  ],
+"layer": "top",
+//"mode": "dock",
+"width": 1200,
+"exclusive": true,
+"passthrough": false,
+"position": "top",
+"spacing": 3,
+"fixed-center": true,
+"ipc": true,
+"margin-top": 2,
+"margin-left": 8,
+"margin-right": 8,
+    
+"modules-left": [
+	"custom/menu",
+        //"hyprland/window",
+        "custom/playerctl",
+        "custom/cava_mviz",
+        
+    ],
+    
+"modules-center": [
+ 	"hyprland/workspaces#pacman",
+	],
+    
+"modules-right": [
+  	"network",
+  	"bluetooth",
+	"custom/weather",
+	"custom/separator#blank_2",
+	"group/audio",
+	"custom/separator#blank_2",
+  	"keyboard-state",
+  	"custom/power",
+    ],
+},
+
+{
+"include": [
+  "$HOME/.config/waybar/Modules",
+  "$HOME/.config/waybar/ModulesWorkspaces",
+  "$HOME/.config/waybar/ModulesCustom",
+  "$HOME/.config/waybar/ModulesGroups",
+  "$HOME/.config/waybar/UserModules",
+  "$HOME/.config/waybar/ModulesVertical",
+  ],
+"temperature#vertical": {
+        "interval": 10,
+        "tooltip": true,
+        "hwmon-path": [
+                "/sys/class/hwmon/hwmon1/temp1_input",
+                "/sys/class/thermal/thermal_zone0/temp"
+        ],
+        //"thermal-zone": 0,
+        "critical-threshold": 80,
+        "format-critical": "!!!{icon}\n{temperatureC}°C",
+        "format": " {icon} \n{temperatureC}°C",
+        "format-icons": [
+                "󰈸"
+        ],
+        "on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nvtop"
+},
+
+"disk#vertical": {
+	"interval": 30,
+	//"format": "󰋊",
+	"path": "/",
+	//"format-alt-click": "click",
+	"format": " 󰋊 \n{percentage_used}%",
+	//"tooltip": true,
+	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+},
+
+"group/motherboard#vertical": {
+        "orientation": "vertical",
+        "modules": [
+                "cpu#vertical",
+                "power-profiles-daemon",
+                "memory#vertical",
+                "temperature#vertical",
+                "disk#vertical",
+        ]
+},
+
+"layer": "top",
+"position": "left",
+"height": 700,
+"margin-top": 8,
+"margin-bottom": 8,
+"margin-left": 3,
+"spacing": 3,
+"fixed-center": true,
+"ipc": true,
+//"gtk-layer-shell": true,
+   
+"modules-left": [
+    "custom/lock",
+    "idle_inhibitor",   
+    ],
+"modules-center": [
+	"group/motherboard#vertical",
+	],
+
+"modules-right": [
+	"mpris",
+	"group/notify",
+    "tray",
+    "group/laptop",
+    ],
+    
+}]

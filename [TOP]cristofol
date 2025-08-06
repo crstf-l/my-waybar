@@ -1,0 +1,90 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+// ### Minimal -SHORT ### //
+
+{
+"include": [
+  "$HOME/.config/waybar/Modules",
+  "$HOME/.config/waybar/ModulesWorkspaces",
+  "$HOME/.config/waybar/ModulesCustom",
+  "$HOME/.config/waybar/ModulesGroups",
+  "$HOME/.config/waybar/UserModules",
+  ],
+  "hyprland/workspaces#pacman": {
+	"active-only": false,
+	"all-outputs": true,
+	"format": "{icon}",
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"show-special": false,
+    "persistent-workspaces": {
+      "*": 3
+	},
+	"format": "{icon}",
+	"format-icons": {
+            "active": "<span font='12'>󰮯</span>",
+            "empty": "<span font='8'></span>",
+            "default": "󰊠",
+	},
+},
+  "group/mobo_drawer": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 1500,
+		"children-class": "cpu",
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"cpu",
+		"temperature",		
+		"power-profiles-daemon",	
+		"memory",
+		"disk",
+	],
+},
+"group/laptop": {
+	"orientation": "inherit",
+	"drawer":{
+		"transition-duration": 1050,
+		"children-class": "battery",
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"battery",
+		"backlight#2",
+	]
+},
+"layer": "top",
+"position": "top",
+"width": 1250,
+"margin-top": 2,
+
+"modules-left": [ 
+	"custom/menu",
+	"wlr/taskbar",
+	"hyprland/workspaces#pacman",
+	],
+
+"modules-center": [
+	"group/notify",
+	"clock#2",
+	"custom/settings"
+	],
+
+"modules-right": [ 
+	"tray",
+	"mpris", 
+	"group/mobo_drawer",
+	"group/audio",
+	"group/laptop",
+	"custom/power"],
+},
+"layer": "top",
+"position": "left",
+"width":1000,
+"margin-left":2,
+"modules-left": [
+	"custom/menu",
+	],
+}
